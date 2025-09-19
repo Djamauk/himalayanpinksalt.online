@@ -1,49 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Salt of the Earth - Himalayan Pink Salt</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:image/x-icon;base64," type="image/x-icon"/>
-</head>
-<body>
-<header class="site-header">
-  <div class="container nav-wrap">
-    <a class="brand" href="index.html">
-      <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true">
-        <path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" />
-        <path d="M41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z"/>
-      </svg>
-      <span>Salt of the Earth</span>
-    </a>
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="products.html">Products</a>
-      <a href="recipes.html">Recipes</a>
-      <a href="testimonials.html">Testimonials</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact-us.html">Contact</a>
-      <a href="order-history.html" class="hide-mobile">Orders</a>
-      <a href="user-account-dashboard.html" class="hide-mobile">Account</a>
-      <a href="register.html" class="hide-mobile">Register</a>
-    </nav>
-    <a class="btn btn-primary" href="secure-payment-checkout.html">Cart</a>
-  </div>
-</header>
-<main class='section alt'><div class='container narrow text-center'><h1>Payment Details</h1></div></main>
-<footer class="site-footer" id="contact">
-  <div class="container text-center">
-    <p>© 2024 Salt of the Earth. All rights reserved. Proudly based in the UK.</p>
-    <nav class="social">
-      <a href="#" aria-label="Facebook">Facebook</a>
-      <a href="#" aria-label="Instagram">Instagram</a>
-      <a href="#" aria-label="Twitter">Twitter</a>
-    </nav>
-  </div>
-</footer>
-</body></html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout — Salt of the Earth</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="brand"><span class="logo"></span> Salt of the Earth</a>
+        <nav class="main-nav">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact-us.html">Contact</a>
+          <a href="order-history.html">Orders</a>
+          <a href="profile-management.html">Account</a>
+          <a href="register.html">Register</a>
+          <a href="secure-payment-checkout.html" class="active">Cart</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" style="padding: 2rem 0;">
+      <h1>Checkout</h1>
+      <!-- Step indicator -->
+      <div class="stepper">
+        <div class="step current"><div class="circle">1</div>Contact</div>
+        <div class="step"><div class="circle">2</div>Delivery</div>
+        <div class="step"><div class="circle">3</div>Payment</div>
+      </div>
+      <div class="checkout-grid">
+        <div>
+          <form id="checkoutForm">
+            <!-- Step 1: Contact -->
+            <section class="checkout-step" data-step="0">
+              <h2>Contact Information</h2>
+              <div class="form-grid">
+                <label>Email Address
+                  <input type="email" name="checkout-email" required placeholder="you@example.com" />
+                </label>
+                <label>Phone Number
+                  <input type="tel" name="checkout-phone" required placeholder="+44 7000 000000" />
+                </label>
+              </div>
+              <div class="spacer"></div>
+              <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+            </section>
+            <!-- Step 2: Delivery -->
+            <section class="checkout-step" data-step="1" style="display: none;">
+              <h2>Delivery Address</h2>
+              <div class="form-grid two">
+                <label>First Name
+                  <input type="text" name="shipping-first" required />
+                </label>
+                <label>Last Name
+                  <input type="text" name="shipping-last" required />
+                </label>
+                <label class="span-2">Address
+                  <input type="text" name="shipping-address" required placeholder="Street address" />
+                </label>
+                <label>City
+                  <input type="text" name="shipping-city" required />
+                </label>
+                <label>Postcode
+                  <input type="text" name="shipping-postcode" required />
+                </label>
+                <label>Country
+                  <select name="shipping-country" required>
+                    <option value="">Select Country</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="US">United States</option>
+                    <option value="FR">France</option>
+                    <option value="DE">Germany</option>
+                  </select>
+                </label>
+              </div>
+              <h3 style="margin-top: 1.5rem;">Shipping Method</h3>
+              <div class="option-group">
+                <label class="option-card">
+                  <input type="radio" name="shipping" value="standard" checked />
+                  <div>
+                    <strong>Standard</strong> <span class="muted" style="display:block;font-weight:400;">3–5 business days</span>
+                  </div>
+                  <span class="price">Free</span>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="shipping" value="express" />
+                  <div>
+                    <strong>Express</strong> <span class="muted" style="display:block;font-weight:400;">1–2 business days</span>
+                  </div>
+                    <span class="price">£4.99</span>
+                </label>
+              </div>
+              <div class="row gap" style="margin-top: 1.5rem;">
+                <button type="button" class="btn btn-outline" onclick="prevStep()">Back</button>
+                <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+              </div>
+            </section>
+            <!-- Step 3: Payment -->
+            <section class="checkout-step" data-step="2" style="display: none;">
+              <h2>Payment Details</h2>
+              <div class="form-grid two">
+                <label>Name on Card
+                  <input type="text" name="card-name" required />
+                </label>
+                <label>Card Number
+                  <input type="text" name="card-number" required placeholder="4242 4242 4242 4242" maxlength="19" />
+                </label>
+                <label>Expiry Month
+                  <input type="text" name="card-exp-month" required placeholder="MM" />
+                </label>
+                <label>Expiry Year
+                  <input type="text" name="card-exp-year" required placeholder="YY" />
+                </label>
+                <label class="span-2">CVC
+                  <input type="text" name="card-cvc" required placeholder="123" />
+                </label>
+              </div>
+              <h3 style="margin-top: 1.5rem;">Payment Method</h3>
+              <div class="option-group">
+                <label class="payment-card selected">
+                  <div class="row gap">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" />
+                    <span>Credit / Debit Card</span>
+                  </div>
+                </label>
+                <label class="payment-card">
+                  <div class="row gap">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/PayPal_Logo.png" alt="PayPal" />
+                    <span>PayPal</span>
+                  </div>
+                </label>
+              </div>
+              <div class="row gap" style="margin-top: 1.5rem;">
+                <button type="button" class="btn btn-outline" onclick="prevStep()">Back</button>
+                <button type="submit" class="btn btn-primary">Place Order</button>
+              </div>
+            </section>
+          </form>
+        </div>
+        <aside class="order-summary">
+          <h3>Order Summary</h3>
+          <div class="summary-items">
+            <div class="item">
+              <span class="name">Fine Himalayan Salt 500g</span>
+              <span class="qty">×1</span>
+              <span class="price">£8.99</span>
+            </div>
+            <div class="item">
+              <span class="name">Coarse Himalayan Salt 1kg</span>
+              <span class="qty">×1</span>
+              <span class="price">£14.99</span>
+            </div>
+          </div>
+          <div class="summary-totals">
+            <div><span>Subtotal</span><span id="subtotalAmount">£23.98</span></div>
+            <div><span>Shipping</span><span id="shippingCost">Free</span></div>
+            <div><strong>Total</strong><strong id="totalAmount">£23.98</strong></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container text-center">
+        <p>© 2025 Salt of the Earth. All rights reserved.</p>
+        <div class="social">
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">Twitter</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const stepsEls = Array.from(document.querySelectorAll('.stepper .step'));
+      const stepSections = Array.from(document.querySelectorAll('.checkout-step'));
+      let current = 0;
+      function updateUI() {
+        stepsEls.forEach((el, idx) => {
+          el.classList.remove('current', 'completed');
+          if (idx < current) el.classList.add('completed');
+          if (idx === current) el.classList.add('current');
+        });
+        stepSections.forEach((sec, idx) => {
+          sec.style.display = idx === current ? '' : 'none';
+        });
+        // update shipping cost in summary based on selection
+        const shipping = document.querySelector('input[name="shipping"]:checked');
+        const shippingLabel = document.getElementById('shippingCost');
+        const totalLabel = document.getElementById('totalAmount');
+        let subtotal = 23.98;
+        let shippingCost = 0;
+        if (shipping && shipping.value === 'express') shippingCost = 4.99;
+        shippingLabel.textContent = shippingCost === 0 ? 'Free' : `£${shippingCost.toFixed(2)}`;
+        const total = subtotal + shippingCost;
+        totalLabel.textContent = `£${total.toFixed(2)}`;
+      }
+      function nextStep() {
+        if (current < stepSections.length - 1) {
+          current++;
+          updateUI();
+        }
+      }
+      function prevStep() {
+        if (current > 0) {
+          current--;
+          updateUI();
+        }
+      }
+      document.getElementById('checkoutForm').addEventListener('change', (e) => {
+        if (e.target.name === 'shipping') {
+          updateUI();
+        }
+      });
+      document.getElementById('checkoutForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Your order has been placed successfully!');
+        window.location.href = 'order-confirmation.html';
+      });
+      // initialise UI on load
+      updateUI();
+    </script>
+  </body>
+</html>
