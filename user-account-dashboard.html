@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User Account Dashboard — Salt of the Earth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html">
+      <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" />
+        <path d="M41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z"/>
+      </svg>
+      <span>Himalayan Pink Salt</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact-us.html">Contact</a>
+      <a href="order-history.html" class="hide-mobile">Orders</a>
+      <a href="user-account-dashboard.html" class="hide-mobile">Account</a>
+      <a href="register.html" class="hide-mobile">Register</a>
+    </nav>
+    <a class="btn btn-primary" href="secure-payment-checkout.html">Cart</a>
+  </div>
+</header>
+
+
+<main class="section alt">
+  <div class="container">
+    <div class="account-grid">
+      <aside class="account-side">
+        <h2>My Account</h2>
+        <nav class="account-nav">
+          <a class="active" href="user-account-dashboard.html"><span>🏠</span>Dashboard</a>
+          <a href="order-history.html"><span>📦</span>Orders</a>
+          <a href="user-account-dashboard.html"><span>👤</span>Profile</a>
+          <a href="#"><span>🏡</span>Addresses</a>
+          <a href="secure-payment-checkout.html"><span>💳</span>Payment Methods</a>
+          <a href="register.html"><span>↩︎</span>Logout</a>
+        </nav>
+      </aside>
+      <section class="account-main">
+        <div class="card p">
+          <h1 class="mb0">Welcome, Sophia!</h1>
+          <p class="muted">Here's a quick overview of your account.</p>
+        </div>
+
+        <div class="cards four">
+          <a class="card highlight rose" href="order-history.html">
+            <div class="icon">📦</div>
+            <div>
+              <h3>View Order History</h3>
+              <p class="muted">Track your past and current orders.</p>
+            </div>
+          </a>
+          <a class="card highlight indigo" href="user-account-dashboard.html">
+            <div class="icon">👤</div>
+            <div>
+              <h3>Manage Profile</h3>
+              <p class="muted">Update your personal information.</p>
+            </div>
+          </a>
+          <a class="card highlight teal" href="#">
+            <div class="icon">🏡</div>
+            <div>
+              <h3>Saved Addresses</h3>
+              <p class="muted">Manage your shipping addresses.</p>
+            </div>
+          </a>
+          <a class="card highlight amber" href="secure-payment-checkout.html">
+            <div class="icon">💳</div>
+            <div>
+              <h3>Payment Methods</h3>
+              <p class="muted">Manage your saved cards.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="card p">
+          <h2>Account Information</h2>
+          <div class="info-rows">
+            <div><span class="muted">Account Status</span><span class="badge success">Active</span></div>
+            <div><span class="muted">Email Address</span><span>sophia.clark@email.com</span></div>
+            <div><span class="muted">Phone Number</span><span>+44 7700 900000</span></div>
+          </div>
+          <div class="right"><a class="btn btn-primary" href="user-account-dashboard.html">Edit Information</a></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+
+<footer class="site-footer">
+  <div class="container text-center">
+    <p>© 2024 Salt of the Earth. All rights reserved.</p>
+    <nav class="social"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">Twitter</a></nav>
+  </div>
+</footer>
+
+</body>
+</html>
