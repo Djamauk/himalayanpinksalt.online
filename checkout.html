@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Checkout • Your Store</title>
+  <meta name="description" content="Secure checkout — contact, delivery, and payment in a streamlined flow." />
+  <!-- Recommended CSP (adjust hosts to match your deployment) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'">
+  <link rel="preconnect" href="/" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="bg">
+  <header class="site-header container">
+    <a class="brand" href="#"><span class="brand-glyph" aria-hidden="true"></span>Your Store</a>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li><a href="#">Cart</a></li>
+        <li aria-current="page">Checkout</li>
+      </ol>
+    </nav>
+  </header>
+
+  <main class="container layout">
+    <section class="flow">
+      <h1 class="page-title">Secure Checkout</h1>
+
+      <ol class="stepper" id="stepper" aria-label="Checkout Steps">
+        <li class="step is-active" data-step="1">
+          <span class="step-index" aria-hidden="true">1</span>
+          <span class="step-label">Contact</span>
+        </li>
+        <li class="step" data-step="2">
+          <span class="step-index" aria-hidden="true">2</span>
+          <span class="step-label">Delivery</span>
+        </li>
+        <li class="step" data-step="3">
+          <span class="step-index" aria-hidden="true">3</span>
+          <span class="step-label">Payment</span>
+        </li>
+      </ol>
+
+      <!-- CONTACT -->
+      <form id="checkoutForm" novalidate class="form-grid" autocomplete="on" aria-describedby="securityNote">
+        <section class="card section" data-step-panel="1" aria-labelledby="contact-h">
+          <div class="section-head">
+            <h2 id="contact-h">Contact details</h2>
+            <p class="muted">We’ll email your receipt and order updates.</p>
+          </div>
+
+          <div class="field full">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="you@domain.com" />
+            <small class="error" data-error-for="email"></small>
+          </div>
+
+          <div class="field">
+            <label for="firstName">First name</label>
+            <input id="firstName" name="firstName" required autocomplete="given-name" />
+            <small class="error" data-error-for="firstName"></small>
+          </div>
+
+          <div class="field">
+            <label for="lastName">Last name</label>
+            <input id="lastName" name="lastName" required autocomplete="family-name" />
+            <small class="error" data-error-for="lastName"></small>
+          </div>
+
+          <div class="field full">
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+1 555 123 4567" />
+          </div>
+
+          <div class="section-actions">
+            <button type="button" class="btn btn-primary next" data-next="2">Continue to delivery</button>
+          </div>
+        </section>
+
+        <!-- DELIVERY -->
+        <section class="card section is-hidden" data-step-panel="2" aria-labelledby="delivery-h">
+          <div class="section-head">
+            <h2 id="delivery-h">Delivery</h2>
+            <p class="muted">Choose a shipping option and provide your address.</p>
+          </div>
+
+          <fieldset class="full" aria-label="Shipping options">
+            <legend class="legend">Shipping method</legend>
+            <div class="option-grid" role="listbox">
+              <label class="option-card">
+                <input type="radio" name="shippingMethod" value="standard" data-price="0" checked />
+                <span class="option-main">
+                  <span class="option-title">Standard</span>
+                  <span class="option-desc">3–5 business days</span>
+                </span>
+                <span class="option-meta">Free</span>
+              </label>
+
+              <label class="option-card">
+                <input type="radio" name="shippingMethod" value="express" data-price="1499" />
+                <span class="option-main">
+                  <span class="option-title">Express</span>
+                  <span class="option-desc">1–2 business days</span>
+                </span>
+                <span class="option-meta" data-currency>+ $14.99</span>
+              </label>
+
+              <label class="option-card">
+                <input type="radio" name="shippingMethod" value="overnight" data-price="2999" />
+                <span class="option-main">
+                  <span class="option-title">Overnight</span>
+                  <span class="option-desc">Arrives tomorrow</span>
+                </span>
+                <span class="option-meta" data-currency>+ $29.99</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="address-grid">
+            <div class="field full">
+              <label for="address1">Address line 1</label>
+              <input id="address1" name="address1" required autocomplete="address-line1" />
+              <small class="error" data-error-for="address1"></small>
+            </div>
+            <div class="field full">
+              <label for="address2">Address line 2 <span class="muted">(optional)</span></label>
+              <input id="address2" name="address2" autocomplete="address-line2" />
+            </div>
+            <div class="field">
+              <label for="city">City</label>
+              <input id="city" name="city" required autocomplete="address-level2" />
+              <small class="error" data-error-for="city"></small>
+            </div>
+            <div class="field">
+              <label for="state">State/Province</label>
+              <input id="state" name="state" required autocomplete="address-level1" />
+              <small class="error" data-error-for="state"></small>
+            </div>
+            <div class="field">
+              <label for="zip">Postal code</label>
+              <input id="zip" name="zip" required autocomplete="postal-code" inputmode="numeric" />
+              <small class="error" data-error-for="zip"></small>
+            </div>
+            <div class="field">
+              <label for="country">Country/Region</label>
+              <select id="country" name="country" required autocomplete="country-name">
+                <option value="" selected disabled>Select country</option>
+                <option>United States</option>
+                <option>Canada</option>
+                <option>United Kingdom</option>
+                <option>Australia</option>
+                <option>France</option>
+                <option>Germany</option>
+                <option>United Arab Emirates</option>
+                <option>Saudi Arabia</option>
+                <option>Kenya</option>
+                <option>Ethiopia</option>
+                <option>Somalia</option>
+                <option>Djibouti</option>
+              </select>
+              <small class="error" data-error-for="country"></small>
+            </div>
+          </div>
+
+          <div class="section-actions">
+            <button type="button" class="btn btn-ghost prev" data-prev="1">Back</button>
+            <button type="button" class="btn btn-primary next" data-next="3">Continue to payment</button>
+          </div>
+        </section>
+
+        <!-- PAYMENT -->
+        <section class="card section is-hidden" data-step-panel="3" aria-labelledby="payment-h">
+          <div class="section-head">
+            <div>
+              <h2 id="payment-h">Payment</h2>
+              <p class="muted">Card details are tokenized; we never store the full number.</p>
+            </div>
+            <div class="payment-badges" aria-hidden="true" title="Accepted cards">VISA • MASTERCARD • AMEX</div>
+          </div>
+
+          <fieldset class="full">
+            <legend class="legend">Payment method</legend>
+            <div class="option-grid">
+              <label class="option-card">
+                <input type="radio" name="payMethod" value="card" checked />
+                <span class="option-main">
+                  <span class="option-title">Credit/Debit card</span>
+                  <span class="option-desc">Pay with card</span>
+                </span>
+                <span class="option-meta" aria-hidden="true">••••</span>
+              </label>
+
+              <label class="option-card">
+                <input type="radio" name="payMethod" value="paypal" />
+                <span class="option-main">
+                  <span class="option-title">PayPal</span>
+                  <span class="option-desc">You’ll be redirected</span>
+                </span>
+                <span class="option-meta" aria-hidden="true">↗</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div id="cardFields" class="grid-2">
+            <div class="field full">
+              <label for="cardName">Name on card</label>
+              <input id="cardName" name="cardName" autocomplete="cc-name" required />
+              <small class="error" data-error-for="cardName"></small>
+            </div>
+
+            <div class="field full">
+              <label for="cardNumber">Card number</label>
+              <input id="cardNumber" name="cardNumber" inputmode="numeric" autocomplete="cc-number" placeholder="4111 1111 1111 1111" required />
+              <small class="error" data-error-for="cardNumber"></small>
+            </div>
+
+            <div class="field">
+              <label for="exp">Expiry</label>
+              <input id="exp" name="exp" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" required />
+              <small class="error" data-error-for="exp"></small>
+            </div>
+
+            <div class="field">
+              <label for="cvc">CVC</label>
+              <input id="cvc" name="cvc" inputmode="numeric" autocomplete="cc-csc" placeholder="123" required />
+              <small class="error" data-error-for="cvc"></small>
+            </div>
+          </div>
+
+          <div class="field full">
+            <label class="checkbox">
+              <input type="checkbox" id="saveCard" name="saveCard" />
+              <span>Securely remember this card for next time</span>
+            </label>
+          </div>
+
+          <div class="section-actions">
+            <button type="button" class="btn btn-ghost prev" data-prev="2">Back</button>
+            <button type="submit" class="btn btn-primary">Place order</button>
+          </div>
+
+          <p id="securityNote" class="help">
+            For production, integrate a PCI-compliant provider (e.g., Stripe Elements, Braintree Drop-in).
+            This demo performs client-side validation and stores only a masked token (last 4 + brand) if you opt-in.
+          </p>
+        </section>
+      </form>
+    </section>
+
+    <!-- ORDER SUMMARY -->
+    <aside class="summary card" aria-labelledby="summary-h">
+      <h2 id="summary-h" class="summary-title">Order summary</h2>
+      <ul id="summaryItems" class="summary-items" role="list">
+        <!-- Example items (replace with cart rendering) -->
+        <li class="summary-item">
+          <span class="summary-item-info">
+            <span class="item-title">Gradient Hoodie</span>
+            <span class="item-sub">Ocean / M</span>
+          </span>
+          <span class="item-price" data-price="5900" data-currency>$59.00</span>
+        </li>
+        <li class="summary-item">
+          <span class="summary-item-info">
+            <span class="item-title">Sticker Pack</span>
+            <span class="item-sub">5 pcs</span>
+          </span>
+          <span class="item-price" data-price="900" data-currency>$9.00</span>
+        </li>
+      </ul>
+
+      <div class="summary-line">
+        <label class="sr-only" for="coupon">Discount code</label>
+        <input id="coupon" class="input" placeholder="Coupon code" />
+        <button id="applyCoupon" class="btn btn-outline" type="button">Apply</button>
+      </div>
+
+      <div class="summary-line">
+        <span>Subtotal</span><span id="subtotal" data-currency>$0.00</span>
+      </div>
+      <div class="summary-line">
+        <span>Shipping</span><span id="shipping" data-currency>$0.00</span>
+      </div>
+      <div class="summary-line tax">
+        <span>Tax</span><span id="tax" data-currency>$0.00</span>
+      </div>
+      <div class="summary-line total">
+        <span>Total</span><span id="total" data-currency>$0.00</span>
+      </div>
+
+      <div class="guarantees">
+        <div class="guarantee">🔒 Secure</div>
+        <div class="guarantee">↩ 30-day return</div>
+        <div class="guarantee">⚡ Fast delivery</div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="container site-footer">
+    <p class="muted">By placing your order, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

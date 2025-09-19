@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Account • Your Store</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="bg">
+  <header class="site-header container">
+    <a class="brand" href="checkout.html"><span class="brand-glyph" aria-hidden="true"></span>Your Store</a>
+    <h1 class="page-title">Account</h1>
+  </header>
+
+  <main class="container layout-single">
+    <section class="card">
+      <div role="tablist" aria-label="Account sections" class="tabs" id="accountTabs">
+        <button role="tab" aria-selected="true" aria-controls="panel-profile" id="tab-profile" class="tab">Profile</button>
+        <button role="tab" aria-selected="false" aria-controls="panel-addresses" id="tab-addresses" class="tab">Addresses</button>
+        <button role="tab" aria-selected="false" aria-controls="panel-payments" id="tab-payments" class="tab">Payment methods</button>
+        <button role="tab" aria-selected="false" aria-controls="panel-preferences" id="tab-preferences" class="tab">Preferences</button>
+      </div>
+
+      <div id="panel-profile" role="tabpanel" aria-labelledby="tab-profile" class="tabpanel">
+        <form id="profileForm" class="form-grid" novalidate autocomplete="on">
+          <div class="field">
+            <label for="pf-first">First name</label>
+            <input id="pf-first" name="firstName" autocomplete="given-name" required />
+          </div>
+          <div class="field">
+            <label for="pf-last">Last name</label>
+            <input id="pf-last" name="lastName" autocomplete="family-name" required />
+          </div>
+          <div class="field full">
+            <label for="pf-email">Email</label>
+            <input id="pf-email" type="email" name="email" autocomplete="email" required />
+          </div>
+          <div class="field full">
+            <label for="pf-phone">Phone</label>
+            <input id="pf-phone" type="tel" name="phone" autocomplete="tel" />
+          </div>
+          <div class="section-actions">
+            <button class="btn btn-primary" type="submit">Save profile</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="panel-addresses" role="tabpanel" aria-labelledby="tab-addresses" class="tabpanel is-hidden">
+        <div class="toolbar">
+          <h2 class="h3">Saved addresses</h2>
+          <button id="addAddress" class="btn btn-outline" type="button">Add address</button>
+        </div>
+        <ul id="addressList" class="cards-list" role="list"></ul>
+
+        <dialog id="addressModal" class="modal">
+          <form method="dialog" class="form-grid" id="addressForm">
+            <h3 class="h3">Address</h3>
+            <input type="hidden" id="addr-id" />
+            <div class="field full"><label for="addr1">Address line 1</label><input id="addr1" required /></div>
+            <div class="field full"><label for="addr2">Address line 2</label><input id="addr2" /></div>
+            <div class="field"><label for="addr-city">City</label><input id="addr-city" required /></div>
+            <div class="field"><label for="addr-state">State/Province</label><input id="addr-state" required /></div>
+            <div class="field"><label for="addr-zip">Postal code</label><input id="addr-zip" required /></div>
+            <div class="field"><label for="addr-country">Country</label>
+              <input id="addr-country" required list="countries" />
+              <datalist id="countries">
+                <option>United States</option><option>Canada</option><option>United Kingdom</option>
+                <option>Australia</option><option>France</option><option>Germany</option>
+                <option>United Arab Emirates</option><option>Saudi Arabia</option>
+                <option>Kenya</option><option>Ethiopia</option><option>Somalia</option><option>Djibouti</option>
+              </datalist>
+            </div>
+            <div class="section-actions">
+              <button class="btn btn-ghost" value="cancel">Cancel</button>
+              <button class="btn btn-primary" value="save">Save</button>
+            </div>
+          </form>
+        </dialog>
+      </div>
+
+      <div id="panel-payments" role="tabpanel" aria-labelledby="tab-payments" class="tabpanel is-hidden">
+        <div class="toolbar">
+          <h2 class="h3">Saved payment methods</h2>
+          <button id="addCard" class="btn btn-outline" type="button">Add card</button>
+        </div>
+        <ul id="cardList" class="cards-list" role="list"></ul>
+
+        <dialog id="cardModal" class="modal">
+          <form method="dialog" class="form-grid" id="cardForm" novalidate>
+            <h3 class="h3">Add card</h3>
+            <div class="field full"><label for="pm-name">Name on card</label><input id="pm-name" required autocomplete="cc-name" /></div>
+            <div class="field full"><label for="pm-number">Card number</label><input id="pm-number" required autocomplete="cc-number" inputmode="numeric" placeholder="4111 1111 1111 1111"/></div>
+            <div class="field"><label for="pm-exp">Expiry</label><input id="pm-exp" required placeholder="MM/YY" autocomplete="cc-exp" inputmode="numeric"/></div>
+            <div class="field"><label for="pm-cvc">CVC</label><input id="pm-cvc" required autocomplete="cc-csc" inputmode="numeric" /></div>
+            <p class="help">We only save a masked token (brand + last 4). Full card details never touch our servers in production—use a PCI-compliant provider.</p>
+            <div class="section-actions">
+              <button class="btn btn-ghost" value="cancel">Cancel</button>
+              <button class="btn btn-primary" value="save">Save</button>
+            </div>
+          </form>
+        </dialog>
+      </div>
+
+      <div id="panel-preferences" role="tabpanel" aria-labelledby="tab-preferences" class="tabpanel is-hidden">
+        <form id="prefsForm" class="form-grid">
+          <div class="field full">
+            <label class="checkbox"><input type="checkbox" id="pref-news" /> <span>Email me product news</span></label>
+          </div>
+          <div class="field full">
+            <label class="checkbox"><input type="checkbox" id="pref-deals" /> <span>Send me special offers</span></label>
+          </div>
+          <div class="field full">
+            <label class="checkbox"><input type="checkbox" id="pref-sms" /> <span>Order updates by SMS</span></label>
+          </div>
+          <div class="section-actions">
+            <button class="btn btn-primary" type="submit">Save preferences</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container site-footer">
+    <a class="btn btn-ghost" href="checkout.html">Go to Checkout</a>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
